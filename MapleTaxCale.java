@@ -101,7 +101,7 @@ public class MapleTaxCale {
         return 0;
     }
 
-    public static int EntrustedStoreTax(final long meso) {
+    public static int EntrustedStoreTax(final int meso) {
         if (meso < 100000000) if (meso >= 25000000) {
             return (int) Math.round(0.025 * meso);
         } else if (meso < 10000000) if (meso >= 5000000) {
