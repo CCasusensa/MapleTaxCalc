@@ -32,7 +32,7 @@ public class MapleTaxCale {
                     sel = sc.nextInt();
                     switch (sel) { // 結束程式
                         case 6:
-                            System.out.println("感謝使用本程式^^");
+                            Strlnshow("感謝使用本程式^^");
                             try {
                                 System.exit(0);
                             } catch (Exception e) {
