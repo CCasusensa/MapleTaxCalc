@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /*
@@ -15,16 +16,20 @@ import java.util.Scanner;
 public class MapleTaxCale {
 
     public static void main(String[] args) throws IOException {
-        int sel = 0, i = 1;
+        int sel = 0, i = 1, a = 0;
         long mesos = 0, quantity = 0, price = 0, totalmeso = 0, currentmeso = 0;
+        String[] list = {"交易手續費計算", "個人商店、精靈商人手續費計算", "查看目前的總共金額", "初始化所有金額值", "關於本作者", "結束本程式"};
+        HashMap strmap = new HashMap();
         while (i == 1) {
             Strlnshow("-----MapleTaxCale-----");
-            Strlnshow("1. 交易手續費計算");
-            Strlnshow("2. 個人商店、精靈商人手續費計算");
-            Strlnshow("3. 查看目前的總共金額");
-            Strlnshow("4. 初始化所有金額值");
-            Strlnshow("5. 關於本作者");
-            Strlnshow("6. 結束本程式");
+            
+            /* HashMap map put textlist */
+            while (a < 6) {
+                 strmap.put(a, list[a]); a++;}
+                
+            for (Object skey : strmap.keySet())
+                Strlnshow(skey + " : " + strmap.get(skey));
+            
             try {
                 do {
                     Scanner sc = new Scanner(System.in);
@@ -40,7 +45,7 @@ public class MapleTaxCale {
                             break;
                         case 5: // 關於本程式作者
                             try {
-                                java.net.URI uri = new java.net.URI("https://www.facebook.com/Haola");
+                                java.net.URI uri = new java.net.URI("https://www.facebook.com/YahoXdD");
                                 java.awt.Desktop.getDesktop().browse(uri);
                             } catch (URISyntaxException | IOException e) {
                             }
@@ -51,7 +56,7 @@ public class MapleTaxCale {
                             Strlnshow("已經清空初始值!");
                             break;
                         case 3: // 查看金額值
-                            Strlnshow("-------專業個人商店、精靈商人查看金額-------\r\n目前全部總共:" + (totalmeso - EntrustedStoreTax(totalmeso)));
+                            Strlnshow("-------精靈商人查看金額-------\r\n目前全部總共:" + (totalmeso - EntrustedStoreTax(totalmeso)));
                             break;
                         case 2: // 個人商店、精靈商人手續費計算
                             Strshow("請輸入販售的數量: ");
